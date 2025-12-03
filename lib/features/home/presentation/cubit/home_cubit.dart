@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel_app/core/utls/app_strings.dart';
-import 'package:dalel_app/features/home/data/models/historical_character.dart';
+import 'package:dalel_app/features/home/data/models/historical_character_model.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model.dart';
-import 'package:dalel_app/features/home/data/models/souvenirs_model.dart';
+import 'package:dalel_app/features/bazar/data/souvenirs_model.dart';
 import 'package:meta/meta.dart';
 
 part 'home_state.dart';

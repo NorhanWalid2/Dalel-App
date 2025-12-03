@@ -11,7 +11,7 @@ class CustomAppBarWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(child: Image(image: AssetImage(Assets.assetsImagesLayer2))),
+        Container(child: Image(image: AssetImage(Assets.assetsImagesLayer))),
         Text(
           AppStrings.dalel,
           style: AppTextstyle.pacifico400Style64.copyWith(fontSize: 22),

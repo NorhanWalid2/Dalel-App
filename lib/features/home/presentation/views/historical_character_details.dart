@@ -1,21 +1,19 @@
 import 'package:dalel_app/core/utls/app_assets.dart';
 import 'package:dalel_app/core/utls/app_colors.dart';
+import 'package:dalel_app/core/utls/app_strings.dart';
 import 'package:dalel_app/core/utls/app_textstyle.dart';
-import 'package:dalel_app/features/home/data/models/historical_periods_model.dart';
+import 'package:dalel_app/features/home/data/models/historical_character_model.dart';
 import 'package:dalel_app/features/home/presentation/cubit/home_cubit.dart';
-import 'package:dalel_app/features/home/presentation/views/widgets/custom_about_widget.dart';
-import 'package:dalel_app/features/home/presentation/views/widgets/custom_description_widget.dart';
+import 'package:dalel_app/features/home/presentation/views/widgets/custom_description_charcter.dart';
 import 'package:dalel_app/features/home/presentation/views/widgets/custom_home_app_bar_widget.dart';
-import 'package:dalel_app/features/home/presentation/views/widgets/custom_wars_widget.dart';
 import 'package:dalel_app/features/home/presentation/views/widgets/historical_character_widget.dart';
-import 'package:dalel_app/features/home/presentation/views/widgets/historical_period_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
-class HistoricalPeriodsDetailsView extends StatelessWidget {
-  const HistoricalPeriodsDetailsView({super.key, required this.model});
-  final HistoricalPeriodsModel model;
+class HistoricalCharactersDetailsView extends StatelessWidget {
+  const HistoricalCharactersDetailsView({super.key, required this.model});
+  final HistoricalCharacterModel model;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,14 +23,44 @@ class HistoricalPeriodsDetailsView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
           child: CustomScrollView(
             slivers: [
-              //SliverToBoxAdapter(child: SizedBox(height: 32)),
+              SliverToBoxAdapter(child: SizedBox(height: 32)),
               SliverToBoxAdapter(child: CustomAppBarWidget()),
               SliverToBoxAdapter(child: SizedBox(height: 17)),
-              SliverToBoxAdapter(child: CustomAboutWidget(model: model)),
+              SliverToBoxAdapter(
+                child: Row(
+                  children: [
+                    Text(
+                      "${AppStrings.about} ${model.name}",
+                      style: AppTextstyle.poppins500wstyle24.copyWith(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
+                        color: AppColors.deepBrown,
+                      ),
+                    ),
+                    SizedBox(width: 7),
+                    Image.asset(Assets.assetsImagesLifeKey),
+                  ],
+                ),
+              ),
               SliverToBoxAdapter(child: SizedBox(height: 47)),
-              SliverToBoxAdapter(child: CustomDescriptionWidget(model: model)),
+              SliverToBoxAdapter(
+                child: CustomDescriptionCharcter(model: model),
+              ),
               SliverToBoxAdapter(child: SizedBox(height: 22)),
-              SliverToBoxAdapter(child: CustomHeaderWarsWidget(model: model)),
+              SliverToBoxAdapter(
+                child: Row(
+                  children: [
+                    Text(
+                      "${model.name} War",
+                      style: AppTextstyle.poppins500wstyle24.copyWith(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
+                        color: AppColors.deepBrown,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               SliverToBoxAdapter(child: SizedBox(height: 16)),
               SliverToBoxAdapter(
                 child: Stack(

@@ -1,8 +1,7 @@
 import 'package:dalel_app/core/function/navigation.dart';
 import 'package:dalel_app/core/utls/app_assets.dart';
 import 'package:dalel_app/core/utls/app_strings.dart';
-import 'package:dalel_app/core/utls/app_textstyle.dart';
-import 'package:dalel_app/features/profile/presentation/views/widgets/custom_header_widget.dart';
+import 'package:dalel_app/features/home/presentation/views/widgets/custom_home_app_bar_widget.dart';
 import 'package:dalel_app/features/profile/presentation/views/widgets/custom_list_tile_widget.dart';
 import 'package:dalel_app/features/profile/presentation/views/widgets/custom_title_widget.dart';
 import 'package:dalel_app/features/profile/presentation/views/widgets/profile_info_widget.dart';
@@ -18,20 +17,18 @@ class ProfileView extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
             SliverToBoxAdapter(
-              child: CustomHeaderWidget(
-                text: AppStrings.profile,
-                textStyle: AppTextstyle.heebo700wstyle24bold,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: CustomAppBarWidget(),
               ),
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 24)),
             SliverToBoxAdapter(child: ProfileInfoWidget()),
             SliverToBoxAdapter(child: SizedBox(height: 32)),
             SliverToBoxAdapter(
               child: CustomTitleWidget(text: AppStrings.account),
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 24)),
+            SliverToBoxAdapter(child: SizedBox(height: 15)),
             SliverToBoxAdapter(
               child: CustomListTileWidget(
                 title: AppStrings.editProfile,
@@ -44,11 +41,11 @@ class ProfileView extends StatelessWidget {
                 image: Assets.assetsImagesNotification,
               ),
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 32)),
+            SliverToBoxAdapter(child: SizedBox(height: 16)),
             SliverToBoxAdapter(
               child: CustomTitleWidget(text: AppStrings.general),
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 24)),
+            SliverToBoxAdapter(child: SizedBox(height: 10)),
             SliverToBoxAdapter(
               child: CustomListTileWidget(
                 title: AppStrings.settings,

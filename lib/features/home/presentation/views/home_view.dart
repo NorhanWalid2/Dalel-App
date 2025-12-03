@@ -14,40 +14,42 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.offWhite,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 38),
-        child: CustomScrollView(
-          slivers: [
-            // SliverToBoxAdapter(child: SizedBox(height: 28)),
-            SliverToBoxAdapter(child: CustomAppBarWidget()),
-            SliverToBoxAdapter(child: SizedBox(height: 32)),
-            SliverToBoxAdapter(
-              child: CustomHeaderText(text: AppStrings.historicalPeriods),
-            ),
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverToBoxAdapter(child: CustomItemCard()),
-            SliverToBoxAdapter(child: SizedBox(height: 32)),
-            SliverToBoxAdapter(
-              child: CustomHeaderText(text: AppStrings.historicalCharacters),
-            ),
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.offWhite,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+          child: CustomScrollView(
+            slivers: [
+              // SliverToBoxAdapter(child: SizedBox(height: 28)),
+              SliverToBoxAdapter(child: CustomAppBarWidget()),
+              SliverToBoxAdapter(child: SizedBox(height: 32)),
+              SliverToBoxAdapter(
+                child: CustomHeaderText(text: AppStrings.historicalPeriods),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 16)),
+              SliverToBoxAdapter(child: CustomItemCard()),
+              SliverToBoxAdapter(child: SizedBox(height: 32)),
+              SliverToBoxAdapter(
+                child: CustomHeaderText(text: AppStrings.historicalCharacters),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 16)),
 
-            SliverToBoxAdapter(child: CustomListViewWidget()),
-            SliverToBoxAdapter(child: SizedBox(height: 32)),
-            SliverToBoxAdapter(
-              child: CustomHeaderText(text: AppStrings.ancientWar),
-            ),
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverToBoxAdapter(child: AncientWarsWidget()),
-            SliverToBoxAdapter(child: SizedBox(height: 32)),
-            SliverToBoxAdapter(
-              child: CustomHeaderText(text: AppStrings.historicalSouvenirs),
-            ),
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverToBoxAdapter(child: SouvenirsWidget()),
-          ],
+              SliverToBoxAdapter(child: CustomListViewWidget()),
+              SliverToBoxAdapter(child: SizedBox(height: 32)),
+              SliverToBoxAdapter(
+                child: CustomHeaderText(text: AppStrings.ancientWar),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 16)),
+              SliverToBoxAdapter(child: AncientWarsWidget()),
+              SliverToBoxAdapter(child: SizedBox(height: 32)),
+              SliverToBoxAdapter(
+                child: CustomHeaderText(text: AppStrings.historicalSouvenirs),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 16)),
+              SliverToBoxAdapter(child: SouvenirsWidget()),
+            ],
+          ),
         ),
       ),
     );

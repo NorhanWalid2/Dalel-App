@@ -2,7 +2,9 @@ import 'package:dalel_app/features/auth/presentation/auth_cubit/cubit/auth_cubit
 import 'package:dalel_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/login_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/verfication_view.dart';
+import 'package:dalel_app/features/home/data/models/historical_character_model.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model.dart';
+import 'package:dalel_app/features/home/presentation/views/historical_character_details.dart';
 import 'package:dalel_app/features/home/presentation/views/historical_periods_details_view.dart';
 import 'package:dalel_app/features/home/presentation/views/widgets/nav_bar_widget.dart';
 import 'package:dalel_app/features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -28,28 +30,19 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/Login',
       builder: (context, state) {
-        return BlocProvider(
-          create: (context) => AuthCubit(),
-          child: LoginView(),
-        );
+        return LoginView();
       },
     ),
     GoRoute(
       path: '/SignUp',
       builder: (context, state) {
-        return BlocProvider(
-          create: (context) => AuthCubit(),
-          child: SignUpView(),
-        );
+        return SignUpView();
       },
     ),
     GoRoute(
       path: '/forgetPassword',
       builder: (context, state) {
-        return BlocProvider(
-          create: (context) => AuthCubit(),
-          child: ForgetPasswordView(),
-        );
+        return ForgetPasswordView();
       },
     ),
     GoRoute(
@@ -68,14 +61,15 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/homeHistoricalPeriodDetails',
       builder: (context, state) {
-      final model = state.extra as HistoricalPeriodsModel; 
-    return HistoricalPeriodsDetailsView(model: model);
+        final model = state.extra as HistoricalPeriodsModel;
+        return HistoricalPeriodsDetailsView(model: model);
       },
     ),
     GoRoute(
       path: '/homeHistoricalCharactersDetails',
       builder: (context, state) {
-        return NavBarWidget();
+        final model = state.extra as HistoricalCharacterModel;
+        return HistoricalCharactersDetailsView(model: model);
       },
     ),
   ],

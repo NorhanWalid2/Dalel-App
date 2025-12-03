@@ -5,6 +5,7 @@ import 'package:dalel_app/core/utls/app_strings.dart';
 import 'package:dalel_app/core/widgets/custom_button.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/cubit/auth_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/auth_cubit/cubit/auth_state.dart';
+import 'package:dalel_app/features/auth/presentation/views/login_view.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/custom_textfield.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/terms_and_condition.dart';
 import 'package:flutter/material.dart';
@@ -28,9 +29,16 @@ class _CustomFormSigUpState extends State<CustomFormSigUp> {
         if (state is SignUpSuccessState) {
           showToastMessage(
             'Successfully,Check your email to verfiy your account',
-            AppColors.primaryColor,
+            AppColors.lightGrey,
           );
-          CustomReplacementNavigation(context, '/Login');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) {
+                return LoginView();
+              },
+            ),
+          );
         } else if (state is SignUpFailureState) {
           showToastMessage(state.errMessage, Colors.red);
         }

@@ -32,9 +32,8 @@ class CustomListTileWidget extends StatelessWidget {
               child: Image.asset(Assets.assetsImagesArrow),
             ),
           ),
-          SizedBox(height: 16),
+
           Divider(color: AppColors.deepBrown, thickness: 0.5),
-          SizedBox(height: 16),
         ],
       ),
     );

@@ -105,5 +105,6 @@ abstract class FireBaseStrings {
       firstName = 'firstName',
       users = 'users',
       lastName = 'lastName',
-      email = 'email';
+      email = 'email',
+      title = 'title';
 }

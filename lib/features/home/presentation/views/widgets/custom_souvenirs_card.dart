@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dalel_app/core/utls/app_colors.dart';
 import 'package:dalel_app/core/utls/app_textstyle.dart';
-import 'package:dalel_app/features/home/data/models/souvenirs_model.dart';
+import 'package:dalel_app/features/bazar/data/souvenirs_model.dart';
 import 'package:flutter/material.dart';
 
 class CustomSouvenirsCard extends StatelessWidget {

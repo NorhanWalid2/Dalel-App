@@ -31,7 +31,7 @@ class Assets {
 
   /// Assets for assetsImagesEagle
   /// assets/images/eagle.svg
-  static const String assetsImagesNevirtiti = "assets/images/eagle.svg";
+  static const String assetsImagesEagle = "assets/images/eagle.svg";
 
   /// Assets for assetsImagesEdit
   /// assets/images/Edit.png
@@ -41,6 +41,10 @@ class Assets {
   /// assets/images/Ellipse 6.svg
   static const String assetsImagesEllipse = "assets/images/Ellipse 6.svg";
 
+  /// Assets for assetsImagesF
+  /// assets/images/f.png
+  static const String assetsImagesF = "assets/images/f.png";
+
   /// Assets for assetsImagesFrame 1
   /// assets/images/Frame 1.png
   static const String assetsImagesFrame = "assets/images/Frame 1.png";
@@ -48,6 +52,10 @@ class Assets {
   /// Assets for assetsImagesFrame2
   /// assets/images/Frame2.svg
   static const String assetsImagesFrame2 = "assets/images/Frame2.svg";
+
+  /// Assets for assetsImagesI
+  /// assets/images/i.png
+  static const String assetsImagesI = "assets/images/i.png";
 
   /// Assets for assetsImagesImageBck
   /// assets/images/imageBck.svg
@@ -60,11 +68,11 @@ class Assets {
 
   /// Assets for assetsImagesLargeCircle
   /// assets/images/largeCircle.svg
-  static const String assetsImagesEagle = "assets/images/largeCircle.svg";
+  static const String assetsImagesLargeCircle = "assets/images/largeCircle.svg";
 
   /// Assets for assetsImagesLayer 2
   /// assets/images/Layer 2.png
-  static const String assetsImagesLayer2 = "assets/images/Layer 2.png";
+  static const String assetsImagesLayer = "assets/images/Layer 2.png";
 
   /// Assets for assetsImagesLifeKey
   /// assets/images/lifeKey.png
@@ -111,6 +119,10 @@ class Assets {
   /// assets/images/pyramid.svg
   static const String assetsImagesPyramid = "assets/images/pyramid.svg";
 
+  /// Assets for assetsImagesR
+  /// assets/images/r.png
+  static const String assetsImagesR = "assets/images/r.png";
+
   /// Assets for assetsImagesSearch
   /// assets/images/search.svg
   static const String assetsImagesSearch = "assets/images/search.svg";
@@ -143,4 +155,9 @@ class Assets {
   /// Assets for assetsImagesVector (1)
   /// assets/images/Vector (1).png
   static const String assetsImagesVector1 = "assets/images/Vector (1).png";
+
+  /// Assets for assetsImagesWhiteBackArrow
+  /// assets/images/whiteBackArrow.svg
+  static const String assetsImagesWhiteBackArrow =
+      "assets/images/whiteBackArrow.svg";
 }

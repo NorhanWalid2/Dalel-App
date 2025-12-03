@@ -1,12 +1,15 @@
-
 import 'package:dalel_app/core/utls/app_strings.dart';
 
 class SouvenirsModel {
   final String name;
   final String image;
   final String price;
+  final String description;
+  final String availaboility;
 
   SouvenirsModel({
+    required this.description,
+    required this.availaboility,
     required this.name,
     required this.image,
     required this.price,
@@ -16,6 +19,8 @@ class SouvenirsModel {
       name: jsonData[FireBaseStrings.name],
       image: jsonData[FireBaseStrings.image],
       price: jsonData[FireBaseStrings.price],
+      description: jsonData[FireBaseStrings.description],
+      availaboility: jsonData['availability'],
     );
   }
 }
