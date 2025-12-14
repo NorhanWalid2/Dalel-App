@@ -7,16 +7,17 @@ import 'package:flutter/material.dart';
 
 class CustomCardListView extends StatelessWidget {
   const CustomCardListView({
-    super.key, required this.historicalcharactersModel, required this.path,
-   
+    super.key,
+    required this.historicalcharactersModel,
+    required this.path,
   });
-    final HistoricalCharacterModel historicalcharactersModel;
+  final HistoricalCharacterModel historicalcharactersModel;
   final String path;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-         CustomNavigation(context, path, extra:historicalcharactersModel );
+      onTap: () {
+        CustomNavigation(context, path, extra: historicalcharactersModel);
       },
       child: Container(
         width: 83,
@@ -41,14 +42,21 @@ class CustomCardListView extends StatelessWidget {
                 imageUrl: historicalcharactersModel.image,
                 fit: BoxFit.fill,
                 placeholder:
-                    (context, url) => Center(child: CircularProgressIndicator()),
+                    (context, url) =>
+                        Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => Icon(Icons.error),
               ),
             ),
             const SizedBox(height: 11),
-            Text(
-              historicalcharactersModel.name,
-              style: AppTextstyle.poppins500wstyle24.copyWith(fontSize: 14),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2),
+              child: Text(
+                historicalcharactersModel.name,
+                style: AppTextstyle.poppins500wstyle24.copyWith(
+                  fontSize: 11,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
           ],
         ),

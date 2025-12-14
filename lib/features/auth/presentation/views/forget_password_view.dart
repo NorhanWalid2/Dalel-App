@@ -29,24 +29,6 @@ class ForgetPasswordView extends StatelessWidget {
           SliverToBoxAdapter(child: EnterYourRegisteredWidget()),
           SliverToBoxAdapter(child: SizedBox(height: 45)),
           SliverToBoxAdapter(child: CustomForgotPasswordForm()),
-          // SliverToBoxAdapter(
-          //   child: Padding(
-          //     padding: const EdgeInsets.only(left: 24.0, right: 24),
-          //     child: CustomTextFormField(labelText: AppStrings.emailAddress),
-          //   ),
-          // ),
-          //SliverToBoxAdapter(child: SizedBox(height: 195)),
-          // SliverToBoxAdapter(
-          //   child: Padding(
-          //     padding: const EdgeInsets.only(left: 16.0, right: 16),
-          //     child: CustomButton(
-          //       text: AppStrings.sendVerificationCode,
-          //       onpress: () {
-          //         CustomNavigation(context, '/verfication');
-          //       },
-          //     ),
-          //   ),
-          // ),
           SliverToBoxAdapter(child: SizedBox(height: 17)),
         ],
       ),

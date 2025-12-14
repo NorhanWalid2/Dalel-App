@@ -1,13 +1,10 @@
 import 'package:dalel_app/core/utls/app_colors.dart';
-import 'package:dalel_app/features/bazar/presentation/bazar_view.dart';
-import 'package:dalel_app/features/bazar/presentation/bazar_view_wrapper.dart';
+import 'package:dalel_app/features/bazar/presentation/views/bazar_view_wrapper.dart';
 import 'package:dalel_app/features/favourite/presentation/views/favourite_view.dart';
-import 'package:dalel_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:dalel_app/features/home/presentation/views/home_view.dart';
 import 'package:dalel_app/features/profile/presentation/views/profile_view.dart';
 import 'package:dalel_app/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NavBarWidget extends StatefulWidget {
   const NavBarWidget({super.key});
@@ -23,15 +20,7 @@ class _NavBarWidgetState extends State<NavBarWidget>
   late AnimationController _controller;
 
   final List<Widget> _screens = [
-    BlocProvider(
-      create:
-          (context) =>
-              HomeCubit()
-                ..getHistoricalPeriods()
-                ..getHistoricalCharacters()
-                ..getHistoricalSouvenirs(),
-      child: HomeView(),
-    ),
+    HomeView(),
     SearchView(),
     FavouriteView(),
     BazarPageWrapper(),

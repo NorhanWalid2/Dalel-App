@@ -1,19 +1,19 @@
 import 'package:dalel_app/core/utls/app_textstyle.dart';
 import 'package:dalel_app/core/widgets/custom_header_text.dart';
+import 'package:dalel_app/features/bazar/data/souvenirs_model.dart';
+import 'package:dalel_app/features/bazar/presentation/views/widgets/historical_souvenirs_image.dart';
 import 'package:dalel_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:dalel_app/features/home/presentation/views/widgets/custom_home_app_bar_widget.dart';
 import 'package:dalel_app/features/home/presentation/views/widgets/historical_period_card.dart';
 import 'package:dalel_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 class BazarView extends StatefulWidget {
   const BazarView({super.key});
 
   @override
   State<BazarView> createState() => _BazarViewState();
 }
-
 class _BazarViewState extends State<BazarView> {
   @override
   void initState() {
@@ -22,7 +22,6 @@ class _BazarViewState extends State<BazarView> {
     final cubit = context.read<HomeCubit>();
     cubit.getHistoricalSouvenirs();
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,7 +38,6 @@ class _BazarViewState extends State<BazarView> {
               const SizedBox(height: 16),
               const CustomHeaderText(text: "Historical Souvenirs"),
               const SizedBox(height: 8),
-
               // Souvenirs grid
               Expanded(
                 child: BlocBuilder<HomeCubit, HomeState>(
@@ -78,27 +76,7 @@ class _BazarViewState extends State<BazarView> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ClipRRect(
-                                  borderRadius: const BorderRadius.vertical(
-                                    top: Radius.circular(12),
-                                  ),
-                                  child: Image.network(
-                                    souvenir.image,
-                                    height: 100,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                    errorBuilder:
-                                        (context, error, stackTrace) =>
-                                            Container(
-                                              height: 100,
-                                              color: Colors.grey[300],
-                                              child: const Icon(
-                                                Icons.image_not_supported,
-                                                size: 50,
-                                              ),
-                                            ),
-                                  ),
-                                ),
+                                HistoricalSouvenirImage(souvenir: souvenir),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(

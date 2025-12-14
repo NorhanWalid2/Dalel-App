@@ -46,18 +46,4 @@ class CustomImageLoginWidget extends StatelessWidget {
     );
   }
 }
-  // Positioned(
-          //   top: 188,
-          //   left: -60,
-            
-          // ),
-          // Positioned(
-          //   top: 162,
-          //   left: 263,
-            
-          // ),
-          // Positioned(
-          //   top: 120,
-          //   left: 175,
-            
-          // ),
+  

@@ -3,12 +3,13 @@ import 'package:dalel_app/core/utls/app_colors.dart';
 import 'package:dalel_app/core/utls/app_strings.dart';
 import 'package:dalel_app/core/utls/app_textstyle.dart';
 import 'package:dalel_app/features/home/data/models/historical_character_model.dart';
-import 'package:dalel_app/features/home/presentation/cubit/home_cubit.dart';
+import 'package:dalel_app/features/home/presentation/views/widgets/about_widget.dart';
 import 'package:dalel_app/features/home/presentation/views/widgets/custom_description_charcter.dart';
 import 'package:dalel_app/features/home/presentation/views/widgets/custom_home_app_bar_widget.dart';
 import 'package:dalel_app/features/home/presentation/views/widgets/historical_character_widget.dart';
+import 'package:dalel_app/features/home/presentation/views/widgets/recommend_widget.dart';
+import 'package:dalel_app/features/home/presentation/views/widgets/war_name.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HistoricalCharactersDetailsView extends StatelessWidget {
@@ -27,20 +28,7 @@ class HistoricalCharactersDetailsView extends StatelessWidget {
               SliverToBoxAdapter(child: CustomAppBarWidget()),
               SliverToBoxAdapter(child: SizedBox(height: 17)),
               SliverToBoxAdapter(
-                child: Row(
-                  children: [
-                    Text(
-                      "${AppStrings.about} ${model.name}",
-                      style: AppTextstyle.poppins500wstyle24.copyWith(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 20,
-                        color: AppColors.deepBrown,
-                      ),
-                    ),
-                    SizedBox(width: 7),
-                    Image.asset(Assets.assetsImagesLifeKey),
-                  ],
-                ),
+                child: aboutWidget(model: model),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 47)),
               SliverToBoxAdapter(
@@ -48,18 +36,7 @@ class HistoricalCharactersDetailsView extends StatelessWidget {
               ),
               SliverToBoxAdapter(child: SizedBox(height: 22)),
               SliverToBoxAdapter(
-                child: Row(
-                  children: [
-                    Text(
-                      "${model.name} War",
-                      style: AppTextstyle.poppins500wstyle24.copyWith(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 20,
-                        color: AppColors.deepBrown,
-                      ),
-                    ),
-                  ],
-                ),
+                child: WarNameWidget(model: model),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 16)),
               SliverToBoxAdapter(
@@ -131,22 +108,10 @@ class HistoricalCharactersDetailsView extends StatelessWidget {
               ),
               SliverToBoxAdapter(child: SizedBox(height: 24)),
               SliverToBoxAdapter(
-                child: Text(
-                  "Recommendations",
-                  style: AppTextstyle.poppins500wstyle24.copyWith(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20,
-                    color: AppColors.deepBrown,
-                  ),
-                ),
+                child: recommendWidget(),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 16)),
-              SliverToBoxAdapter(
-                child: BlocProvider(
-                  create: (context) => HomeCubit(),
-                  child: CustomListViewWidget(),
-                ),
-              ),
+              SliverToBoxAdapter(child: CustomListViewWidget()),
             ],
           ),
         ),

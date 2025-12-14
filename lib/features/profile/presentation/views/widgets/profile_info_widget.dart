@@ -25,18 +25,34 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
     User? user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
 
-    var query =
+    final query =
         await FirebaseFirestore.instance
             .collection(FireBaseStrings.users)
             .where(FireBaseStrings.email, isEqualTo: user.email)
+            .limit(1)
             .get();
 
     if (query.docs.isEmpty) return;
 
-    var docData = query.docs[0].data() as Map<String, dynamic>;
+    final doc = query.docs.first; // 👈 مهم جدًا
+
     setState(() {
-      profile = ProfileModel.fromJson(docData);
+      profile = ProfileModel.fromJson(
+        doc.data() as Map<String, dynamic>,
+        doc.id, // 👈 documentId
+      );
     });
+  }
+
+  Future<void> updateName(String firstName, String lastName) async {
+    if (profile == null) return;
+
+    await FirebaseFirestore.instance
+        .collection(FireBaseStrings.users)
+        .doc(profile!.id) // 👈 نفس document
+        .update({'firstName': firstName, 'lastName': lastName});
+
+    await loadProfile(); // 👈 refresh
   }
 
   @override

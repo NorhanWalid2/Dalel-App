@@ -37,6 +37,7 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       print("***************************************************");
       emit(GetHistoricalCharacterLoadingState());
+      historicalCharacters.clear();
       await FirebaseFirestore.instance
           .collection(FireBaseStrings.historicalCharacter)
           .get()

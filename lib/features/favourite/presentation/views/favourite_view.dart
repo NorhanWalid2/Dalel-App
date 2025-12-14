@@ -22,28 +22,30 @@ class _FavouriteViewState extends State<FavouriteView> {
             ),
             favourites.isEmpty
                 ? const Center(child: Text("No favourites yet"))
-                : ListView.builder(
-                  itemCount: favourites.length,
-                  itemBuilder: (context, index) {
-                    final item = favourites[index];
-                    return ListTile(
-                      leading: Image.network(
-                        item.image,
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
-                      ),
-                      title: Text(item.name),
-                      subtitle: Text(item.price),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete, color: Colors.red),
-                        onPressed: () {
-                          favourites.remove(item);
-                          setState(() {}); // refresh screen
-                        },
-                      ),
-                    );
-                  },
+                : Expanded(
+                  child: ListView.builder(
+                    itemCount: favourites.length,
+                    itemBuilder: (context, index) {
+                      final item = favourites[index];
+                      return ListTile(
+                        leading: Image.network(
+                          item.image,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                        title: Text(item.name),
+                        subtitle: Text(item.price),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete, color: Colors.red),
+                          onPressed: () {
+                            favourites.remove(item);
+                            setState(() {}); // refresh screen
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
           ],
         ),
